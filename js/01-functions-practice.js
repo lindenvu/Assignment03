@@ -1,5 +1,6 @@
 /*eslint-env browser*/
 //STEP 1
+
 function halfNumber(aNumber) {
     "use strict";
     window.console.log("Half of " + aNumber + " is " + aNumber / 2);
@@ -20,16 +21,27 @@ function percentOf(numberOne, numberTwo) {
     window.console.log(numberOne + " is " + percent + " of " + numberTwo);
     return percent;
 }
-percentOf(parseInt(window.prompt("Enter two numbers separated by a comma"), 10));
+percentOf(parseInt(window.prompt("Enter a number"), 10), parseInt(window.prompt("Enter another number"), 10));
 //STEP 4
 function findModulus(numberOne, numberTwo) {
     "use strict";
     window.console.log(numberOne % numberTwo + " is the modulus of " + numberOne + " and " + numberTwo);
     return numberOne % numberTwo;
 }
-findModulus(parseInt(window.prompt("Enter two numbers separated by a comma"), 10));
+findModulus(parseInt(window.prompt("Enter a number"), 10), parseInt(window.prompt("Enter another number"), 10));
+
 //STEP 5
-function sumNumbers() {
+function sumNumbers(numbers) {
     "use strict";
+    var i, sum = 0, msg = "The sum of ";
+    for (i = 0; i < arguments.length; i += 1) {
+        sum += Number(arguments[i]);
+        msg = msg + arguments[i] + " ";
+    }
+    msg = msg + "is " + sum;
+    window.console.log(msg);
+    return sum;
 }
-sumNumbers(parseInt(window.prompt("Enter several numbers separated by commas"), 10));
+var sumPrompt = window.prompt("Enter 3 numbers separated by commas");
+var parseSumPrompt = sumPrompt.split(",");
+sumNumbers(parseSumPrompt[0], parseSumPrompt[1], parseSumPrompt[2]);
